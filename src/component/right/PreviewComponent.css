@@ -1,0 +1,23 @@
+.previewComponent{
+
+    flex: 7;
+    background-color:rgb(65, 54, 76);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    height: 100vh;
+    overflow-y: scroll;
+    
+}
+.nav__link{
+
+    display: flex;
+    align-items: center;
+
+}
+.nav__link>button{
+
+    padding: 10px;
+    width: 100px
+}

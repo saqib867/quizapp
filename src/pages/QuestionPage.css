@@ -1,0 +1,16 @@
+.question_page{
+
+        display: flex;
+        flex-direction: row;
+        
+}
+.btn{
+
+        background-color: rgb(0, 55, 107);
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        width:99%;
+        padding: 10px;
+        
+}
