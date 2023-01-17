@@ -49,7 +49,7 @@ useEffect(()=>{
               )
           })
         :
-        'no question'
+        <h3 className={'no__question'}>No Question</h3>
       }
     </div>
   )

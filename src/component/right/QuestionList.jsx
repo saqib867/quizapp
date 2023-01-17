@@ -37,8 +37,9 @@ const answer=(id,op)=>{
        
         {isBtnClicked && <div>
           <h5>Question has been answered </h5>
-          {getAnswer?.isCorrect ?'correct answer': "correct answer is "+getAnswer?.ans}
-          
+          <div style={{display:'flex',alignItems:'center',margin:'10px'}}>
+            {getAnswer?.isCorrect ?'correct answer':( getAnswer?.ans !==undefined && " wrong!! correct answer is "+getAnswer.ans)}
+          </div>
           </div>}
       <h3 >{list?.q}</h3>
       <button className='list__button'

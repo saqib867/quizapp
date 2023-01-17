@@ -14,6 +14,7 @@ function QuestionForm() {
  const [options,setOptions]=useState({})
  const [{questions},dispatch]=useStateValue()
  const [correct,setCorrect]=useState('')
+ const [error,setError]=useState('')
 
 const inputHandler=(op,e)=>{
     
@@ -25,10 +26,14 @@ const handleCorrect=(e)=>{
        setCorrect(e.target.value)
          
 }
+useEffect(()=>{
+         
+        createQuestion?console.log('good'):console.log('no good')
+},[])
 //mongo password: ycZumjXEQJilRMG7
 const submit=()=>{
  
-   if(createQuestion?.q!==''){
+   if(createQuestion && options && correct){
     
     // setCreateQuestion(item=>({...item,op}))
     console.log({...createQuestion,options,correct})
@@ -39,9 +44,13 @@ const submit=()=>{
       dispatch(addQuestion({...createQuestion,options,correct,id:response.data.name}))
     }).catch(err=>console.log("err",err))
     
-    setCreateQuestion({...createQuestion,q:''}) 
-    setOptions({...options,option1:'',option2:'',option3:''})
+    setCreateQuestion('') 
+    setOptions({})
     setCorrect('')
+    setError('')
+   }
+   else{
+       setError('Please fill out all the fields')
    }
    
 }
@@ -49,7 +58,7 @@ const submit=()=>{
 
   return (
     <div className='questionForm'>
-      
+          {error}
         <textarea className='questionForm__area' value={createQuestion?.q}
          placeholder='Enter Question' onChange={(e)=>setCreateQuestion(({q:e.target.value}))}  />
         
